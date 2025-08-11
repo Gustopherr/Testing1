@@ -89,3 +89,27 @@ Econ_clean %>%
   )
 
 ```
+
+
+***
+
+# Analysis: Education Expenditure and GDP per Capita
+
+```{r plot-education-gdp, message=FALSE, warning=FALSE}
+ggplot(Econ_clean, aes(x = Education_Expenditure, y = GDP_per_Capita)) +
+  geom_point(alpha = 0.6, colour = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, colour = "darkred") +
+  labs(
+    title = "Relationship Between Education Expenditure and GDP per Capita",
+    x = "Education Expenditure (% of GDP)",
+    y = "GDP per Capita (US$)"
+  ) +
+  theme_minimal()
+```
+
+**Analysis of Education on GDP:**  
+The scatter plot shows the relationship between education expenditure as a percentage of GDP and GDP per capita across countries. While a few high-income countries do invest more in education (6–8%), the overall trend appears weak and diffuse. Countries with similar education spending (e.g., 4–6% of GDP) show vastly different economic outcomes, with GDP per capita ranging from under $5,000 to over $80,000.
+
+This pattern suggests that education expenditure alone is not a strong predictor of national income. Although economic theory (Hanushek & Woessmann, 2010) supports the idea that investment in education fosters long-term growth, this may depend on additional factors such as education quality, governance, efficiency of spending, or the stage of economic development. Some low-income countries may invest in education but face barriers in translating that investment into productivity gains.
+
+Overall, the findings highlight that while education is an important component of human capital, expenditure as a share of GDP may not capture the full picture. Future analysis could benefit from including more nuanced variables—such as test scores, enrolment rates, or lagged effects—to better reflect education’s contribution to growth.
