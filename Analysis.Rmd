@@ -27,3 +27,65 @@ Econ_clean <- Econ_data %>%
 ```
 ***
 
+# Descriptive Summary
+
+```{r summary-tables, message=FALSE, warning=FALSE}
+
+# GDP per Capita
+Econ_clean %>%
+  summarise(
+    Mean = mean(GDP_per_Capita, na.rm = TRUE),
+    SD   = sd(GDP_per_Capita, na.rm = TRUE),
+    Min  = min(GDP_per_Capita, na.rm = TRUE),
+    Max  = max(GDP_per_Capita, na.rm = TRUE)
+  ) %>%
+  mutate(across(everything(), as.numeric)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "Statistic",
+    values_to = "Value"
+  ) %>%
+  kable(
+    digits = 2,
+    caption = "GDP per Capita — Descriptive Statistics"
+  )
+
+# Education Expenditure
+Econ_clean %>%
+  summarise(
+    Mean = mean(Education_Expenditure, na.rm = TRUE),
+    SD   = sd(Education_Expenditure, na.rm = TRUE),
+    Min  = min(Education_Expenditure, na.rm = TRUE),
+    Max  = max(Education_Expenditure, na.rm = TRUE)
+  ) %>%
+  mutate(across(everything(), as.numeric)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "Statistic",
+    values_to = "Value"
+  ) %>%
+  kable(
+    digits = 2,
+    caption = "Education Expenditure (% of GDP) — Descriptive Statistics"
+  )
+
+# Industry Employment
+Econ_clean %>%
+  summarise(
+    Mean = mean(Industry_Employment, na.rm = TRUE),
+    SD   = sd(Industry_Employment, na.rm = TRUE),
+    Min  = min(Industry_Employment, na.rm = TRUE),
+    Max  = max(Industry_Employment, na.rm = TRUE)
+  ) %>%
+  mutate(across(everything(), as.numeric)) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "Statistic",
+    values_to = "Value"
+  ) %>%
+  kable(
+    digits = 2,
+    caption = "Industry Employment (% of Employed) — Descriptive Statistics"
+  )
+
+```
