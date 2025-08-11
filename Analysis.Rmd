@@ -113,3 +113,26 @@ The scatter plot shows the relationship between education expenditure as a perce
 This pattern suggests that education expenditure alone is not a strong predictor of national income. Although economic theory (Hanushek & Woessmann, 2010) supports the idea that investment in education fosters long-term growth, this may depend on additional factors such as education quality, governance, efficiency of spending, or the stage of economic development. Some low-income countries may invest in education but face barriers in translating that investment into productivity gains.
 
 Overall, the findings highlight that while education is an important component of human capital, expenditure as a share of GDP may not capture the full picture. Future analysis could benefit from including more nuanced variables—such as test scores, enrolment rates, or lagged effects—to better reflect education’s contribution to growth.
+
+# Analysis: Industry Employment and GDP per Capita
+
+```{r plot-industry-gdp, message=FALSE, warning=FALSE}
+ggplot(Econ_clean, aes(x = Industry_Employment, y = GDP_per_Capita)) +
+  geom_point(alpha = 0.6, colour = "forestgreen") +
+  geom_smooth(method = "lm", se = TRUE, colour = "darkred") +
+  labs(
+    title = "Relationship Between Industry Employment and GDP per Capita",
+    x = "Employment in Industry (% of Employed Population)",
+    y = "GDP per Capita (US$)"
+  ) +
+  theme_minimal()
+```
+
+**Summary:**  
+The scatter plot examining the relationship between industry employment share and GDP per capita reveals a slightly negative linear trend. Countries with a higher proportion of their workforce employed in industry tend to have lower GDP per capita, while countries with higher incomes tend to show lower industrial employment, typically between 15–25%.
+
+This finding may seem counterintuitive at first but is well supported by structural transformation theory (Kuznets, 1966). In the early stages of development, countries tend to shift workers from agriculture into industry, leading to productivity gains. However, as countries continue to develop, their economies tend to move toward the service sector, where value-added and innovation often drive further income growth. As a result, post-industrial economies may show both lower industrial employment and higher GDP per capita.
+
+The slight negative trend also reflects the current global economic landscape, where advanced economies have largely deindustrialised and rely more on services and knowledge-based industries. In contrast, many middle- and low-income countries still depend on industrial jobs but may lack the infrastructure or productivity to translate that into sustained income growth.
+
+These results suggest that industrial employment is a development stage indicator, not a direct driver of GDP per capita in high-income contexts.
