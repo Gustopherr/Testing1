@@ -1,0 +1,32 @@
+---
+title: "Intro"
+author: "Gus"
+date: "2025-08-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(knitr)
+library(rmarkdown)
+
+```
+
+# Introduction
+
+Economic development is influenced by a range of social and structural factors. Among these, education expenditure and employment in industry are widely recognised as key contributors to national income. Hanushek and Woessmann (2010) argue that investment in education leads to long-term productivity growth through improved human capital. Similarly, the role of industry has been emphasised in growth theory, particularly through the work of Kaldor (1966) and Kuznets (1966), who linked industrialisation to structural transformation and economic development. This study investigates two research questions:
+
+1. Is there a relationship between education expenditure and GDP per capita?
+2. How does the proportion of employment in industry relate to GDP per capita?
+
+Using cross-country data, we aim to explore these relationships.
+
+***
