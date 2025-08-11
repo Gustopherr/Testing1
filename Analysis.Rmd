@@ -1,0 +1,29 @@
+---
+title: "Untitled"
+author: "Gus"
+date: "2025-08-11"
+output: html_document
+---
+
+# Load and Clean Data
+
+```{r load-data, message=FALSE, warning=FALSE}
+Econ_data <- read_csv("soci_econ_country_profiles.csv")  
+
+# Clean and rename variables
+Econ_clean <- Econ_data %>%
+  select(
+    Country = country,  
+    GDP_per_Capita = `GDP per capita (current US$)`,
+    Education_Expenditure = `Education: Government expenditure (% of GDP)`,
+    Industry_Employment = `Employment: Industry (% of employed)`,
+  ) %>%
+  drop_na() %>%
+  filter(
+    GDP_per_Capita > 0,
+    Education_Expenditure > 0,
+    Industry_Employment > 0,
+  )
+```
+***
+
